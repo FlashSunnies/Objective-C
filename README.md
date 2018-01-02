@@ -1,12 +1,11 @@
-# Objective-C
-
-常用知识库
-
-
 ## 去空宏定义
-      #define safeString(obj) (([obj isEqual:[NSNull null]] || (obj == nil) || [@"null" isEqual:obj] || [@"<null>" isEqual:obj] || [@"(null)" isEqual:obj]) ? @"" : ([NSString stringWithFormat:@"%@",obj]))
+    #define safeString(obj) (([obj isEqual:[NSNull null]] || (obj == nil) || [@"null" isEqual:obj] || [@"<null>" isEqual:obj] || [@"(null)" isEqual:obj]) ? @"" : ([NSString stringWithFormat:@"%@",obj]))
 
-      #define isEmptyString(obj) (([obj isEqual:[NSNull null]] || obj==nil || [@"null" isEqual:obj]) ? 1 : 0)
+    #define isEmptyString(obj) (([obj isEqual:[NSNull null]] || obj==nil || [@"null" isEqual:obj]) ? 1 : 0)
+## 正则匹配
+     #define PredicateCompare(sourceString,foundString)   [[NSPredicate predicateWithFormat:@"self MATCHES %@",sourceString] evaluateWithObject:foundString]
+## 定义数据源字符串是否存在指定字符串 sourceString:数据源字符串,foundString:需要查找的字符串
+     #define RANGEFOUND(sourceString,foundString)  [sourceString rangeOfString:foundString].location != NSNotFound
 
 ##  iOS_WeakSelf&&StrongSelf
 
@@ -33,7 +32,7 @@
       1.定义宏：使用前提条件，定义一下宏
       #define WeakSelf(weakSelf)      __weak __typeof(&*self)    weakSelf  = self;
       #define StrongSelf(strongSelf)  __strong __typeof(&*self) strongSelf = weakSelf;
-      ###weakSelf宏用法
+      a. weakSelf宏用法
       /**修改用户密码*/
       - (void)requestForModyPasswordWithCode:(NSString*)messageCode mobile:(NSString*)mobile newPasswrod:(NSString*)newPassword {
       
@@ -50,7 +49,7 @@
       [TJToastView showWithText:@"修改密码失败，请稍候尝试" topOffset:MainScreenSize.height/2.0];
       }];
       }
-      ###strongSelf宏用法
+      b.strongSelf宏用法
       /**发送短信验证码*/
       - (void)requestForSendMessageCodeByPhoneNumber:(NSString*)mobile{
       WeakSelf(weakSelf)
@@ -76,4 +75,5 @@
 
 
       
+
 
