@@ -33,7 +33,7 @@
       1.定义宏：使用前提条件，定义一下宏
       #define WeakSelf(weakSelf)      __weak __typeof(&*self)    weakSelf  = self;
       #define StrongSelf(strongSelf)  __strong __typeof(&*self) strongSelf = weakSelf;
-      a. weakSelf宏用法
+      ###weakSelf宏用法
       /**修改用户密码*/
       - (void)requestForModyPasswordWithCode:(NSString*)messageCode mobile:(NSString*)mobile newPasswrod:(NSString*)newPassword {
       
@@ -50,7 +50,7 @@
       [TJToastView showWithText:@"修改密码失败，请稍候尝试" topOffset:MainScreenSize.height/2.0];
       }];
       }
-      b.strongSelf宏用法
+      ###strongSelf宏用法
       /**发送短信验证码*/
       - (void)requestForSendMessageCodeByPhoneNumber:(NSString*)mobile{
       WeakSelf(weakSelf)
