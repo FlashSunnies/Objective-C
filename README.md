@@ -70,8 +70,32 @@
       //do someThing...
       }
       
+#cocoapods
 
-      
+   ## 终端报错：
+      -bash: /usr/local/bin/pod: /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby: bad interpreter: No such file or directory
+      在终端中输入：
+      sudo gem install -n /usr/local/bin cocoapods
+      即可解决
+     ##更新所有库最简单最基本的方法
+     pod update
+     更新所有库一种间接直观的方法
+     
+     ## 打开终端
+     cd ~/.cocoapods
+     ls
+     cd repos
+     ls
+     cd master
+     ls
+     ls -a
+     git pull
+     //简单的介绍一下该方法第一行cd ~/.cocoapods是进入到本地的cocoapods类库根目录 ls是显示该目录下有哪些文件之后一直cd 下去到了master文件夹
+     //master中的Specs文件夹就是存放者本地的第三方库的目录,每个文件夹里有一个json文件介绍了该三方的基本情况(版本,适用iOS版本等等)
+     //ls -a是显示该文件夹下的隐藏文件,会发现有一个.git文件说明该文件夹是一个git厂库,说以可以使用git的方法更新该文件夹的内容
+     //git pull等待执行完毕即可
+     
+     
 
 
       
